@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai&display=swap'); /* import Noto Serif Thai*/
+
+/*-----------------------------*/
+:root{
+    --blkbdrradus: 2vh;
+    --blkpadding: 4vh 2vw;
+    --themeclr1 : rgb(240, 169, 169);
+    --themeclr2: rgb(160, 0, 64);
+    --themeclr2: rgb(64, 17, 17);
+
+    
+}
+
+
+
+
+*{
+    font-family: 'Noto Serif Thai';
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(226, 214, 214);
+}
+#app{
+    align-items: center;
+    
+}
+.container{
+    display: grid;
+    
+    
+    
+    padding: 0;
+    width: 100vw;
+}
+
+.navbar{
+    
+    position: sticky;
+    top:90vh;
+    background-color: rgb(165, 166, 250);
+    text-align: center;
+    height:10vh;
+    font-size: 3vh;
+    border-radius: 4vh 4vh 0 0 ;
+    min-width: 50vh;
+    max-width: 70%;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    
+    
+    
+    z-index: 1;
+}
+.navbar img{
+    height: 10vh;
+    border-radius: 50%;
+    
+}
+.navbar ul{
+    list-style: none;
+    
+    
+    
+}
+.navbar li{
+    display: inline-block;
+    min-width: 8vw;
+}
+/*.navbar li:not(:last-child) {
+    border-right: 5px soild black;
+}*/
+ul.navul li:not(:last-child){
+    border-right: 1px solid black;
+    padding: 0 3vh;
+}
+.navbar img{
+    border-radius: 5vh;
+    height: 5vh;
+}
+.navbarunder{
+    width:100vw;
+    height:10vw;
+    border-radius: 0 0 5vh 5vh ;
+    background-color: rgb(176, 176, 200);
+    
+    z-index: 1;
+}
+.content{
+    
+    
+    
+    height:100vh;
+}
+.content h1 {
+    font-size: 5vh;
+}
+
+
+.banner{
+    height:40vh;
+    background-color: blueviolet;
+    background-image: url("S-Lguage.png");
+    image-rendering: optimizeQuality;
+    border-radius: 2vh;
+    margin-bottom: 5vh;
+    object-fit:scale-down;
+
+}
+
+.jngtua{
+    background-color: var(--themeclr1);
+    border-radius: var(--blkbdrradus);
+    padding: var(--blkpadding);
+}
+
+/* input */
+
+select ,input{
+    border-radius: 1vh;
+    padding: 0 1vh;
+    margin:0 1vh;
+    
+}

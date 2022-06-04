@@ -1,0 +1,14 @@
+{
+    "user":{
+        "id" : 1,
+        "name" : "pololo",
+        "departure": "..."
+    },
+    "flights":{
+        "No.":"CA0001",
+        "to":"HDL",
+        "from":"DMK",
+        "time":"06.00"
+    }
+
+}

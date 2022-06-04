@@ -7,8 +7,10 @@
     <title>หน้าหลัก - Chickenair</title>
 
     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="main.js"></script>
+    <script src="./components/data.json"></script>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -20,9 +22,15 @@
             
             <div class="navbar" >
                 <ul class = "navul">
-                    <li><img :src="logo" alt="logo"></li>
-                    <li>จองตั๋ว</li>
-                    <li>dd</li>
+                    <li><img :src="logo" alt="logo"> Home</li>
+                    <li><a href="#jngtua">จองตั๋ว</a></li>
+                    <li @click = "enLang = !enLang">
+                        <p>
+                        <i class="bi bi-translate" >
+
+                        </i>
+                        TH/EN</p>
+                    </li>
                 </ul>
             </div>
                
@@ -31,39 +39,60 @@
 
             
             <div class="content">
-                
-                    <h1>ChickenAir - the fake Airline</h1>
+                    <div id = "header">
+                        <img src="assets/ChickenAirlogo.svg" alt="ChickenAirlogo">
+                        <div>
+                            <h1>ChickenAir</h1>
+                            <h2>The fake airline</h2>
+                        </div>
+                    </div>
+                    
                 
                 <div class="banner">
-                   ----------some inage
+                   
+                    <img src="assets/chickenPlanepic.jpg" alt="chickenairplane" srcset="">
+                   
                 </div>
-                <div class="jngtua">
-                    <h3 v-if = "langEn"> Let's booking </h3>
-                    <h3 v-else> จองบัตรโดยสาร</h3>
-                    
-                    <label for="departFrom">Depart from:</label>
-                    <select type="text" id = "departure" v-model="departure">
-                        <option value="text">--please select--</option>
-                        <option value="text">Bangkok(DMG)</option>
-                    </select>
-                    <label for="destination"> To: </label>
-                    <select type="text" id = "destination" v-model="destination">
-                        <option value="text">--please select--</option>
-                        <option value="text">Heartland(HLD)</option>
-                    <br>
-                    <label for="departDate"></label>
-                </div>
+                    <booking-form :en-lang = "enLang" :json-data = "jsonData"></booking-form>
                 <div class="ctblk" v-if = "enLang">
-                    Hi{{name}} welcome to ChickenAir website
-                    <br>
-                    Chickenair is เว็บไซต์สายการบินปลอม
+                    <p>
+                        Hi{{name}} welcome to ChickenAir website
+                        <br>
+                        Chickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline website
+                        Chickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline website
+                        Chickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline website
+                        Chickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline website
+                        <br><br><br><br><br><br><br><br><br>
+                        
+                    </p>
                 </div>
+                <div class="ctblk" v-else>
+                    <p>
+                        สวัสดี ยินดีต้อนรับสู่สายการบิน ชิกเก้นแอร์
+                        เราได้เปิดให้บริการเที่ยวบินระหว่างท่าอากาศยานนานาชาติดอนเมือง และท่าอากาศยานนานาชาติอาร์ตแลนด์ ให้บริการวันละ 2 เที่ยว ในราคาไก่ๆ<br>
+                    
+                    </p>
+                    <p>
+                        สายการบินของเราได้จดทะเบียนเมื่อวันที 32 พฤษภาคม พ.ศ. -2565 
+                    </p>
+                    <h3>
+                        เครื่องบินของเรา
+                    </h3>
+                    <p> เรามีเครื่องบินแบบ boeing 737-800 ให้บริการ 1 ลำ ทะเบียน HS-KAI</p>
+                    <br>
+                    <br>
+                    <b>ปล. ข้อมูลที่กล่าวมามิได้เป็นจริงแต่อย่างใด</b>
+                </div>
+                
             </div>
+            <footah></footah>
             
         </div>
     </div>
     <!-- below is boostrap JS for use with boostrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./components/footer.js"></script>
+    <script src="./components/booking.js"></script>
     <script>
         const mountedApp = app.mount("#app")
     </script>

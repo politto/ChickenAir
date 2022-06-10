@@ -5,12 +5,11 @@ const app = Vue.createApp({
         return {
             chicken : true,
             logo: "./assets/ChickenAirlogo.svg",
-            
             enLang: false ,
             wipwup: false ,
             //varile value below willget fron data.json
             //datajsncopy:" test",
-            flightSerchData : {}
+            
         }
     },
     
@@ -31,15 +30,18 @@ const app = Vue.createApp({
            
         },
         async setData(datafile){
-            let putIntoJson = {
-                namefile:{
-                    //this.flightSerchData
-                }
-            }
-            let response = await fetch('./components/data.json');
-
+            
+            let dataInput = JSON.stringify(datafile)
+            console.log("setData is acivating and dataInput is " + dataInput)
+            //จะนำflightdata จากbooking เข้ามาในนี้เพื่อบันทึกไฟล์ยังไฟล์JSON
+            let response = await fetch('chickenAir/components/data.json', {
+                method: 'POST',
+                body: dataInput
+            });
+            let responseText = await response.text()
+            console.log(responseText)
+            window.open("./flightavalible.html")
         }
-        
     },
     created() {
         //this.whichNavBar()

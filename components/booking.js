@@ -80,14 +80,15 @@ app.component('booking-form',{
             else{
                 //emit filghtserchfilter to main.js andwill send data to JSON there
                 
-                window.open("./flightavalible.html")
                 let flightSearchFilter = {
                     departure:this.departure,
                     destination:this.destination,
                     departDate:this.departDate,
                     discount50:this.discount50
                 }
-                this.$emit('flight-search',flightSearchFilter)
+                console.log(flightSearchFilter)
+                this.$emit('flight-search-filter',flightSearchFilter)
+                
             }
         },
         created(){

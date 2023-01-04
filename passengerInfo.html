@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger info  & Payment</title>
+
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <script src = "passengerInfo.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbarncknotice.css">
+    <link rel="stylesheet" href="atmedia.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./components/footer.js"></script>
+    
+    <script src="./components/flightSercher.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <div id="app">
+            <div class="navbar2">
+                <div>
+                    <a href=""><img :src=logo alt = "logo"></a>
+                </div>
+                <li><h2 v-if = "enLang">Passenger info & Payment</h2>
+                    <h2 v-else>ข้อมูลผู้โดยสาร & ชำระเงิน</h2></li>
+                
+                
+                <!-- <div class = "summaryPriceHead">
+                    <p v-if = "enLang">next <i class="bi bi-arrow-right"></i></p>
+                    <p v-else>ถัดไป <i class="bi bi-arrow-right"></i></p>
+                </div> -->
+
+                <li @click = "enLang = !enLang"><i class="bi bi-translate" ></i>EN/TH</li>
+            </div>
+
+            <div class="content">
+                <div class="ctblk2">
+                    <h1 v-if = "enLang">Passenger info</h1>
+                    <h1 v-else>ข้อมูลผู้โดยสาร</h1>
+                    <p v-if = "enLang">
+                        &emsp; Please fill all of each passenger info properly. And make sure that all data in this form are correct(no spell mismatch, no fake data). because this will be in your ticket when thie flight date and time comes.<br>
+                    
+                        &emsp; (Actually this is the fake airline website, so you can input whatever you want. No data collecting on this website except in cookies format, which store in your device, because We don't know how to collect your data into our server...)
+                    </p>
+                    <p v-else> 
+                        &emsp; กรุณากรอกข้อมูลตามแบบฟอร์มด้านล่างให้เรียบร้อยและถูกต้อง (ไม่มีการสะกดผิดหรือเป็นข้อมูลปลอม) เพราะว่าข้อมูลเหล่านี้จะถูกตรวจสอบและจะไปอยู่บนบัตรโดยสารของคุณในวันและเวลาเดินทาง <br>
+                        &emsp; (จริงๆแล้วนี่คือเว็บไซต์สายการบินปลอมๆ ใส่ข้อมูลอะไรมาก็ใส่ได้เลย และทางเราจะไม่มีการเก็บข้อมูลอะไรทั้งนั้นเข้าสู่ระบบเซิฟเวอร์ของเรา นอกจากคุกกิ้ที่จะเก็บเป็นไฟล์ในอุปกรณ์ของคุณเอง เพราะเราทำไม่เป็น...)
+                    </p>
+                </div>
+                <div class = "ctblk2" v-if = "numAdult===0">
+                    <h2>Please go back to <a href="./index.html">index page.(click here)</a></h2>
+                </div>
+                <div class="ctblk2" v-for = "(psg, index) in Adults">
+                    <h2 v-if = "enLang">Passenger {{index+1}} {{index===0?'(booker)':''}}</h2>
+                    <h2 v-else>ผู้โดยสารคนที่ {{index+1}} {{index===0?'(ผู้จอง)':''}}</h2>
+
+                    <div v-if = "enLang">
+                        <p>Prefix<select v-model = "Adults[index].prefix">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Mrs.">Mrs.</option>
+                        </select></p>
+                        <p>Name :<input v-model = "Adults[index].fname" type = "text"></p>
+                        <p>Surname :<input v-model = "Adults[index].lname" type = "text"></p>
+                        <p>E-mail :<input v-model = "Adults[index].email" type = "text"></p>
+                    </div>
+
+                    <div v-else>
+                        <p>คำนำหน้า<select v-model = "Adults[index].prefix">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Mrs.">Mrs.</option>
+                        </select></p>
+                        <p>ชื่อภาษาอังกฤษ :<input v-model = "Adults[index].fname" type = "text"></p>
+                        <p>นามสกุลภาษาอังกฤษ :<input v-model = "Adults[index].lname" type = "text"></p>
+                        <p>อีเมล :<input v-model = "Adults[index].email" type = "text"></p>
+                    </div>
+
+                </div>
+
+                <div class="ctblk2" v-for = "(psg, index) in Children">
+                    <h2 v-if = "enLang">Passenger(child) {{index+1}}</h2>
+                    <h2 v-else>ผู้โดยสาร(เด็ก)คนที่ {{index+1}}</h2>
+                    <div v-if = "enLang">
+                        <p>Prefix<select v-model = "Children[index].prefix">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Ms.">Ms.</option>
+                            <!-- <option value="Mrs.">Mrs.</option> -->
+                        </select></p>
+                        <p>Name :<input v-model = "Children[index].fname" type = "text"></p>
+                        <p>Surname :<input v-model = "Children[index].lname" type = "text"></p>
+                        <p>E-mail :<input v-model = "Children[index].email" type = "text"></p>
+                    </div>
+
+                    <div v-else>
+                        <p>คำนำหน้า<select v-model = "Children[index].prefix">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Ms.">Ms.</option>
+                             <!-- <option value="Mrs.">Mrs.</option> -->
+                        </select></p>
+                        <p>ชื่อภาษาอังกฤษ :<input v-model = "Children[index].fname" type = "text"></p>
+                        <p>นามสกุลภาษาอังกฤษ :<input v-model = "Children[index].lname" type = "text"></p>
+                        <p>อีเมล :<input v-model = "Children[index].email" type = "text"></p>
+                    </div>
+                </div>
+                <div class="ctblk2" v-if = "Adults.length>0">
+                    <h1 v-if = "enLang">Payment</h1>
+                    <h1 v-else>ชำระเงิน</h1>
+                    <div class="sumprice">
+                        <div class = "sumTotalPrice" style = "grid-row: 1; grid-column: 1;">
+                            <h2>฿ {{(totalPrice*(numAdult+numChildren)).toFixed(2)}}</h2>
+                        </div>
+                        <div class = "sumTotalPrice" style = "grid-row: 1; grid-column: 2/ span 5;">
+                            <h2 v-if = "enLang">Total</h2>
+                            <h2 v-else>รวมทั้งหมด</h2>
+                        </div>
+
+                        <div style = "grid-column: 1; grid-row: 2/span 3;">
+                            <p v-for = "i in numAdult+numChildren">฿ {{totalPrice}}</p>
+                            
+                        </div>
+                        <div v-if = "enLang" style="grid-column: 2 / span 5; grid-row: 2/span 3; ">
+                            <p v-for = "(psg,i) in numAdult">{{Adults[i].prefix}} {{Adults[i].fname}}</p>
+                            <p v-for = "(psg,i) in numChildren">{{Children[i].prefix}} {{Children[i].fname}}</p>
+                        </div>
+                        <div v-else style="grid-column: 2 / span 5; grid-row: 2/span 3;">
+                            <p v-for = "(psg,i) in numAdult">{{Adults[i].prefix}} {{Adults[i].fname}}</p>
+                            <p v-for = "(psg,i) in numChildren">{{Children[i].prefix}} {{Children[i].fname}}</p>
+                        </div>
+                    </div>
+                    <div class="next" style = "text-align: center; background-color: rgb(255, 127, 80);" @click = "paid=!paid" v-if = "!paid">
+                        <h2 v-if = "enLang">Pay it<i class="bi bi-arrow-right"></i></h2>
+                        <h2 v-else>ชำระเงิน <i class="bi bi-arrow-right"></i></h2>
+                    </div>
+                    <div class="next" style = "text-align: center; background-color: rgb(255, 127, 80);" v-if = "paid">
+                        <h2 v-if = "enLang">Payment successful!</i></h2>
+                        <h2 v-else>ชำระเงินเสร็จสิ้น <i class="bi bi-arrow-right"></i></h2>
+                    </div>
+                    <div class="next" style = "text-align: center;" @click = "sendCookies"  v-if = "paid">
+                        <h2 v-if = "enLang">next <i class="bi bi-arrow-right"></i></h2>
+                        <h2 v-else>ถัดไป <i class="bi bi-arrow-right"></i></h2>
+                    </div>
+                    
+                </div>
+
+                
+
+            </div>
+            <p style = "text-align: right; padding-right: 5vw;">@Copyleft {{today}} ChickenAir CO.LTD</p>
+        </div>
+    </div>
+    <script>
+        const mountedApp = app.mount("#app")
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* @media hack */
+
+@media(min-width:200px){
+    .navbar2 ul{
+        padding-left: 10vw;
+    }
+    .navbar.active{
+        left: 0;
+        
+    }
+    .barncross.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .barncross.active .bar:nth-child(1){
+        transform: rotate(-45deg) translateY(12.5px);
+    }
+    .barncross.active .bar:nth-child(3){
+        transform: rotate(+45deg) translateY(-12.5px);
+    }
+}
+@media(min-width:576px){
+    .content{
+        max-width: 576px;
+    }
+    .container{
+        max-width: 100%;
+    }
+    #header{
+        flex-direction: row;
+    }
+    .extendSummaryHead{
+        width: 60%;
+    }
+
+    
+    
+}
+@media(min-width:768px){
+    .content{
+        max-width: 768px;
+    }
+    .container{
+        max-width: 100%;
+    }
+    .navbar2 ul{
+        padding-left: 20vw;
+        visibility: visible;
+    }
+    .navbar, .barncross{
+        visibility: hidden;
+    }
+
+    .jngtua{
+        grid-template-areas: 
+    'head head'
+    'depart arrive'
+    'date pmcode'
+    'adults children'
+    'search search';
+    }
+
+
+    #airportsign{
+        overflow: hidden;        
+    }
+    .baggage{
+        flex-direction: row;
+        height: 300px;
+
+    }
+    .cknotice{
+        width: 50%;
+    }
+    #Heartland iframe{
+        width: 64vw;
+        height:36vw;
+    }
+
+    
+}
+@media(min-width:992px){
+    .content{
+        max-width: 992px;
+    }
+    .container{
+        max-width: 100%;
+    }
+
+    .ctblk2 div{
+        grid-template-areas: 'prefix prefix' 'name surname' 'e-mail e-mail';
+    }
+    .navbar2 .summaryPriceHead{
+        width: 12vw;
+    }
+    .extendSummaryHead{
+        width: 40%;
+    }
+    #Heartland{
+        flex-direction: row;
+    }
+    #Heartland iframe{
+        width: 32vw;
+        height:18vw;
+    }
+}
+@media(min-width:1200px){
+    .content{
+        max-width:1200 px;
+    }
+    .container{
+        max-width: 100%;
+    }
+    .navbar2 ul{
+        padding-left: 40vw;
+    }
+    .cknotice{
+        width: 30%;
+    }
+    
+    
+}
+@media(min-width:1400px){
+    .content{
+        max-width: 1320px;
+    }
+    .container{
+        max-width: 100%;
+    }
+    .navbar2 ul{
+        padding-left: 45vw;
+    }
+    .extendSummaryHead{
+        width: 30%;
+    }
+    #airportsign{
+        
+        grid-template-areas: 
+        'header header' 
+        'depart sumprice'
+        'depart sumprice'
+        'depart sumprice'
+        'arrive sumprice'
+        'arrive sumprice'
+        'arrive next'
+        ;
+        gap: 1%;
+        
+    }
+    .depandarr, .sumprice, .next{
+        width: 48%;
+        margin: 0 auto;
+    }
+    input[type=text]{
+        width: 25em;
+
+    }
+}

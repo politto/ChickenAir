@@ -97,11 +97,22 @@ const app = Vue.createApp({
                 }
             }
             
+        },
+        upperCase(){
+            for(i=0;i<this.adult.length;i++){
+                this.adult[i].fname = this.adult[i].fname.toUpperCase()
+                this.adult[i].lname = this.adult[i].lname.toUpperCase()
+            }
+            for(i=0;i<this.children.length;i++){
+                this.children[i].fname = this.children[i].fname.toUpperCase()
+                this.children[i].lname = this.children[i].lname.toUpperCase()
+            }
         }
     },
     mounted(){
         this.fetchJSON();
         this.recieveCookies();
+        this.upperCase();
         
     }
 })

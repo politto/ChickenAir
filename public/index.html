@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content = "สายการบินชิกเกนแอร์ ให้บริการโดยสารทางเครื่องบินทิพย์สุดพิเศษ ในราคาไก่ๆ">
+    <meta name="keywords" content = "chickenair,ตั๋วเครื่องบินทิพย์, จองตั๋วเครื่องบิน, สายการบิน, ชิกเกนแอร์, ฮาร์ตแลนด์, heartland, ตั๋วทิพย์">
+    <meta name = "author" content = "Nattaphat Songsi-in">
     <title>Home - Chickenair</title>
 
     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.prod.js"></script>
@@ -54,7 +57,7 @@
                         <li v-if = "enLang">Contact</li>
                         <li v-else>ติดต่อ</li>
                     </a>
-                    <li @click = "enLang = !enLang"><i class="bi bi-translate" ></i>EN/TH</li>
+                    <li id = "lang" @click = "enLang = !enLang"><i class="bi bi-translate" ></i>EN/TH</li>
                 </ul>
                 <div class="barncross">
                     <span class="bar"></span>
@@ -104,7 +107,7 @@
 
                     </h3>
                     <p>
-                        We are the fake airline company that operates fake flights between Bangkok(Don mueang) and state of Heartland airport for 2 flights a day in both ways.
+                        We are the fake airline company that operates fake flights between Bangkok Don mueang to Chiang mai, Nakhon si thammarat and Heartland. With chicky fee!
                     </p>
                     <p>
                         we have registered and operating since 32 may -2022
@@ -113,7 +116,7 @@
                         Our aircraft.
                     </h3>
                     <p>
-                        we have 1 B737-800 registrated with HS-KAI.
+                        we have 3 B737-800s registrated with HS-KAI, HS-KA2, HS-KA3.
                     </p>
                     <p>
                         <b>P.S. All registration is intentionally FAKE.</b>
@@ -125,7 +128,7 @@
                     <h3>สวัสดี ยินดีต้อนรับสู่สายการบิน ชิกเกนแอร์</h3>
                     <p>
                         
-                        เราได้เปิดให้บริการเที่ยวบินระหว่างท่าอากาศยานนานาชาติดอนเมือง และท่าอากาศยานนานาชาติอาร์ตแลนด์ ให้บริการวันละ 2 เที่ยว ในราคาไก่ๆ<br>
+                        เราได้เปิดให้บริการเที่ยวบินระหว่างท่าอากาศยานนานาชาติดอนเมือง ไปกลับยัง ท่าอากาศยานเชียงใหม่ ,ท่าอากาศยานนครศรีธรรมราช และท่าอากาศยานอาร์ตแลนด์ ด้วยราคาไก่ๆ<br>
                     
                     </p>
                     <p>
@@ -134,7 +137,7 @@
                     <h3>
                         เครื่องบินของเรา
                     </h3>
-                    <p> เรามีเครื่องบินแบบ boeing 737-800 ให้บริการ 1 ลำ ทะเบียน HS-KAI</p>
+                    <p> เรามีเครื่องบินแบบ boeing 737-800 ให้บริการ 3 ลำ ทะเบียน HS-KAI, HS-KA2 และ HS-KA3.</p>
                     <b>ปล. ข้อมูลข้างต้นมิได้เป็นจริงแต่อย่างใด</b>
                     <br>
                     <br>
@@ -172,11 +175,13 @@
                     <p>What are the purposes for creating this website?</p>
                     <p><b>-> The mainly purposes is <br> to learn to developing a website using Vue.js, a Javascript framework, via doing this website project. <br> to learn about some advance client-side Javascript command which include cookies, Async-Await, writing and fetching a JSON file(as you will see the avalible flights page.) etc., <br> to learn more about HTML and CSS technique, <br> and Finally is I want to create HRK's fanweb(?).</b></p>
 
-                    <p>I found bug(s)?</p>
+                    <p>I found bug(s) or want to complain,give advice, <b>or request for more destination</b>?</p>
                     <p><b>-> Notice me on <a href="#footah">my contact channels in the bottom of this page.</a></b></p>
 
                     <p>Are you tired developing this website?</p>
                     <p><b>-> Definitely yes.</b></p>
+
+
 
                     
                 </div>
@@ -187,12 +192,23 @@
                     <p>จุดประสงค์ในการทำเว็บไซต์นี้คืออะไร?</p>
                     <p><b>-> จุดประสงค์หลักคือ <br> เพื่อเรียนรู้ในการพัฒนาเว็บไซต์โดยใช้ Vue.js ที่เป็นจาวาสคริปต์เฟรมเวิร์ก <br> เพื่อเรียนรู้เกี่ยวกับคำสั่งจาวาสคริปผั่งผู้ใช้งาน(ไม่ใช่node.js)ที่น่าสนใจและนิยมใช้ อันประกอบด้วย cookies, Async-Await, writing และการดึงข้อมูลจาก JSON file(จะเห็นได้จากหน้าแสดงเที่ยวบิน) เป็นต้น, <br> เพื่อเรียนรู้การใช้งาน HTML, CSS เพิ่มเติม, <br> และเพื่อทำแฟนเว็บ(?) ให้แก่พี่เอก HRK</b></p>
 
-                    <p>เจอบัคในเว็บไซต์นี้?</p>
+                    <p>เจอบัคในเว็บไซต์นี้? หรือมีข้อแนะนำ ติชม? <b>หรือต้องการให้เพิ่มจุดหมายปลายทาง?</b></p>
                     <p><b>-> บอกให้ผมทราบ<a href="#footah">ผ่านช่องทางการติดต่อต่างๆตรงด้านล่างของหน้านี้</a></b></p>
 
                     <p>เหนื่อยไหมกับการทำเว็บไซต์นี้?</p>
                     <p><b>-> มาก</b></p>
 
+
+                    
+                </div>
+
+                <div class="ctblk" v-if = "enLang">
+
+                    <h3>If you would like to support the author of this website(CEO of this airline). <a href="https://docs.google.com/document/d/1On4K-6ryc6VMpBWHgwiIrfVSKuNbdQCncPOd9jfAC5s/edit">Please click here, thank you very much.</a></h3>
+                </div>
+                <div class="ctblk" v-else>
+                    
+                    <h3>หากมีความประสงค์จะสนับสนุนผู้จัดทำ(CEO ของสายการบินนี้) <a href="https://docs.google.com/document/d/1On4K-6ryc6VMpBWHgwiIrfVSKuNbdQCncPOd9jfAC5s/edit">โปรดคลิก, หรือแตะที่ตรงนี้ เพื่อสนับสนุนผม ขอบคุณมากๆครับ</a></h3>
                     
                 </div>
                 

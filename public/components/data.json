@@ -42,6 +42,46 @@
             "arriveTime":"10.00",
             "eco":859.00,
             "bsn":1399.00
+        },
+        {
+            "id":3, 
+            "callsign":"CKA112",
+            "departure":"DMK",
+            "destination":"CNX",
+            "departTime":"07.00",
+            "arriveTime":"08.10",
+            "eco":859.00,
+            "bsn":1399.00
+        },
+        {
+            "id":4, 
+            "callsign":"CKA113",
+            "departure":"CNX",
+            "destination":"DMK",
+            "departTime":"10.00",
+            "arriveTime":"11.10",
+            "eco":859.00,
+            "bsn":1399.00
+        },
+        {
+            "id":5, 
+            "callsign":"CKA121",
+            "departure":"DMK",
+            "destination":"NST",
+            "departTime":"08.00",
+            "arriveTime":"09.10",
+            "eco":859.00,
+            "bsn":1399.00
+        },
+        {
+            "id":6, 
+            "callsign":"CKA122",
+            "departure":"NST",
+            "destination":"DMK",
+            "departTime":"10.40",
+            "arriveTime":"11.50",
+            "eco":859.00,
+            "bsn":1399.00
         }
     ],
     "airports":{
@@ -59,7 +99,11 @@
         },
         "NST": {
             "name" : "Nakhon Si Thammarat",
-            "gate" : 1
+            "gate" : 2
+        },
+        "CNX": {
+            "name" : "Chiang mai",
+            "gate" : 5
         }
     }
         

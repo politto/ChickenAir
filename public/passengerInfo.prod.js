@@ -50,9 +50,9 @@ const app= Vue.createApp({
         loadSearchCookie(){
             let ck = document.cookie;
             //If no content in cookies, then create a new one.
-            // if (ck ===""){
-                ck = '{"numAdult":1, "numChildren":0,"class":"eco","flight":"CKA123","depDate":"28-12-2022","depart":"DMK","arrive":"HDL","depTime":"07.00","arrTime":"08.00","ticketFee":799,"airportFee":49.08,"deluxeBaggage":100,"vat7":66,"totalPrice":"1014.08"}'
-            // }
+            // // if (ck ===""){
+            //     ck = '{"numAdult":1, "numChildren":0,"class":"eco","flight":"CKA123","depDate":"28-12-2022","depart":"DMK","arrive":"HDL","depTime":"07.00","arrTime":"08.00","ticketFee":799,"airportFee":49.08,"deluxeBaggage":100,"vat7":66,"totalPrice":"1014.08"}'
+            // // }
             ck = JSON.parse(ck)
             // console.log(ck)
             //clear cookies

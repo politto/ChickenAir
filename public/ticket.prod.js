@@ -19,9 +19,13 @@ const app = Vue.createApp({
         recieveCookies(){
             let ck = document.cookie;
             console.log(ck)
-            // if(ck===""){
-            //     ck = '{"adults":[{"prefix":"Mrs.","fname":"test","lname":"test","email":"test"},{"prefix":"Mr.","fname":"test2","lname":"test2","email":"test2"}],"children":[{"fname":"ss","lname":"ll","email":",,","prefix":"Ms."},{"prefix":"kk","fname":"fgfg","lname":"dd","email":""}],"flight":"CKA123","depart":"DMK","arrive":"HDL","depDate":"28-12-2022","depTime":"07.00","arrTime":"","klass":"eco"}'
-            // }
+            document.cookie = document.cookie + "; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            
+            console.log(document.cookie)
+
+            if(ck===""){
+                ck = '{"adults":[{"prefix":"Mrs.","fname":"test","lname":"test","email":"test"},{"prefix":"Mr.","fname":"test2","lname":"test2","email":"test2"}],"children":[{"fname":"ss","lname":"ll","email":",,","prefix":"Ms."},{"prefix":"kk","fname":"fgfg","lname":"dd","email":""}],"flight":"CKA123","depart":"DMK","arrive":"HDL","depDate":"28-12-2022","depTime":"07.00","arrTime":"","klass":"eco"}'
+            }
             ck = JSON.parse(ck);
             this.adult = ck.adults;
             this.children = ck.children;
@@ -113,6 +117,9 @@ const app = Vue.createApp({
         this.fetchJSON();
         this.recieveCookies();
         this.upperCase();
+        
+    },
+    updated(){
         
     }
 })

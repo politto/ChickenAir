@@ -116,6 +116,11 @@
     .cknotice{
         width: 30%;
     }
+    .ticket{
+        height: 420px;
+        width: 1300px;
+        overflow: hidden;
+    }
     
     
 }
@@ -153,5 +158,12 @@
     input[type=text]{
         width: 25em;
 
+    }
+}
+
+@media(max-width:768px){
+    .navbar2 ul li:nth-child(4){
+        visibility: visible;
+        position: absolute;
     }
 }

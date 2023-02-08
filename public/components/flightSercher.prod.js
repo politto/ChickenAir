@@ -21,8 +21,10 @@ app.component('flight-searcher',{
                     <span v-else>ต้นทาง :</span>
                     <select v-model="departure" @change = "konsolelog(this.departure)">
                         <option value = "" disabled selected>--please select--</option>
-                        <option value = "DMK">Bangkok(DMG)</option>
+                        <option value = "DMK">Bangkok(DMK)</option>
                         <option value = "HDL">Heartland(HDL)</option>
+                        <option value = "CNX">Chiang mai(CNX)</option>
+                        <option value = "NST">Nakhon si thammarat(NST)</option>
                     </select>
                     </p>
                     <p>  
@@ -31,7 +33,9 @@ app.component('flight-searcher',{
                     <select v-model="destination" @change = "konsolelog(this.destination)" >
                         <option value = "" disabled selected>--please select--</option>
                         <option value = "HDL" v-if ="departure!=='HDL'">Heartland(HDL)</option>
-                        <option value = "DMK" v-if ="departure!=='DMK'">Bangkok(DMG)</option>
+                        <option value = "DMK" v-if ="departure!=='DMK'">Bangkok(DMK)</option>
+                        <option value = "CNX" v-if ="departure!=='CNX'">Chiang mai(CNX)</option>
+                        <option value = "NST" v-if ="departure!=='NST'">Nakhon si thammarat(NST)</option>
                     </select>
                     </p>
                     

@@ -41,7 +41,11 @@ const app = Vue.createApp({
             const jsonData = await response.json();
 
             this.flights = jsonData.flights
-
+            let airports = jsonData.airports;
+            
+            
+            this.depart = airports[this.depart].name + "(" + this.depart + ")"
+            this.arrive = airports[this.arrive].name + "(" + this.arrive + ")"
            
         },
         async setData(datafile){

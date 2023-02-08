@@ -487,8 +487,14 @@ select ,input{
     margin:0 1vh;
     
 }
+select{
+    max-width: 50%;
+}
+option{
+    overflow: scroll;
+}
 input[type=text]{
-    width: 18em;
+    max-width: 18em;
     /* Changes in atmedia */
 }
 

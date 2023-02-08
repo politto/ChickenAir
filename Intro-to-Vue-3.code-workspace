@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "..\\Intro-to-Vue-3"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "chickenAir"
+	}
+}

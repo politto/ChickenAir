@@ -4,24 +4,230 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flights</title>
+    <title>Avalible Flights</title>
 
-    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.prod.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="main.js"></script>
+    <script src="main.prod.js"></script>
+    <script src="./components/flightTable.prod.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbarncknotice.css">
+    <link rel="stylesheet" href="atmedia.css">
+    
 </head>
 <body>
     <div class="container">
         <div id="app">
-            {{flightSerchFilter}}
+            <div class="navbar2">
+                <div>
+                    <a href="./index.html"><img :src=logo alt = "logo"></a>
+                </div>
+                <a href="./index.html">
+                    <li v-if = "enLang">back to home</li>
+                    <li v-else>กลับไปหน้าหลัก</li>
+                </a>
+                <li @click = "enLang = !enLang"><i class="bi bi-translate" ></i>EN/TH</li>
+                
+                <div class="summaryPriceHead">
+                    <p>{{summary}}  ฿</p>
+                    <i class="bi bi-caret-down"></i>
+                </div>
+                
+                
+                
+
+            </div>
             
+            <div class="extendSummaryHead">
+                <div v-if = "enLang" style="grid-column: 1 / span 4; grid-row: 1/span 3;">
+                    <p>ticket fee</p>
+                    <p>airport fee</p>
+                    <p>deluxe baggage fee</p>
+                    <p>vat 7%</p>
+                </div>
+                <div v-else style="grid-column: 1 / span 4; grid-row: 1/span 3;">
+                    <p>ค่าบัตรโดยสาร</p>
+                    <p>ภาษีสนามบิน</p>
+                    <p>ค่าธรรมเนียม deluxe baggage</p>
+                    <p>ภาษีมูลค่าเพิ่ม</p>
+                </div>
+                <div style = "grid-column: 6; grid-row: 1/span 3; text-align: right;">
+                    <p>{{ticketFee}} ฿</p>
+                    <p>{{airportFee}} ฿</p>
+                    <p>{{deluxeBaggage? 100 : "-"}} ฿</p>
+                    <p>{{vatseven}} ฿</p>
+                </div>
+                <div class = "totalPriceHead" style = "grid-row: 4; grid-column: 1/ span 5; ">
+                    <h2>Total </h2>
+                </div>
+                <div class = "totalPriceHead" style = "grid-row: 4; grid-column: 6; text-align: right;">
+                    <h2>{{summary}}  ฿</h2>
+                </div>
+                
+            </div>
+            <div class="content">
+            
+                <div id = "header">
+                    <img :src="this.logo" alt="ChickenAirlogo">
+                    <div>
+                        <h1>ChickenAir</h1>
+                        <h2>The fake airline</h2>
+                    </div>
+                </div>
+                
+                
+                <!--flight-searcher :en-lang = "enLang"  @flight-search-filter = "setCookies(flights, 0)" ></flight-searcher-->
+                
+                
+                
+
+                <flight-table @flight-table = "calcPrice" :en-lang = "enLang" :logo = "logo" :dep-date = "depDate" :filter-depart = "depart" :filter-arrive = "arrive"></flight-table>
+                
+
+                <div class="ctblk" id = "bgg">
+                    <h1 v-if = "enLang">Select your baggage plan</h1>
+                    <h1 v-else>เลือกแพคเกจสัมภาระของคุณ</h1>
+                    <div class="baggage" @click = "calcPrice(selectedFlightInfo)">
+                        
+                        <div id = "deluxe" @click = "deluxeBaggage = true">
+                            <div v-if = "enLang">
+                                <h2>Fat bird baggage plan</h2>
+                                <p>extra 20 kg. weight limit of your baggage.</p>
+                                <button type="button" class="btn btn-success btn-lg btn-block">Select</button>
+                            </div>
+                            <div v-else>
+                                <h2>แพคเกจสัมภาระนกอ้วน</h2>
+                                <p>ให้คุณสามารถนำสัมภาระไปได้ถึง 20 กิโลกรัม</p>
+                                <button type="button" class="btn btn-success btn-lg btn-block">เลือก</button>
+                            </div>
+                            
+                        </div>
+                        <div id="nodeluxe" @click = "deluxeBaggage = false "> 
+                            
+                            <div v-if = "enLang">
+                                <h2>Normal baggage plan</h2>
+                                <p>just only 7kg weight limit avalible for your baggage.</p>  
+                                <button type="button" class="btn btn-secondary btn-lg btn-block">Select</button>
+                            </div>  
+                            <div v-else>
+                                <h2>แพกเกจสัมภาระแบบปกติ</h2>
+                                <p>คุณสามารถนำสัมภาระไปได้ไม่เกิน 7 กิโลกรัม</p>  
+                                <button type="button" class="btn btn-secondary btn-lg btn-block">เลือก</button>
+                            </div>  
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ctblk" id = "airportsign">
+                    
+                    <div class = "apsHeader">
+                        <h1>Summary</h1>
+                    </div>
+
+                    
+                    <div class = "depandarr">
+
+                        <div class="daa0">
+                            <span>Depart from :</span>
+                        </div>
+                        <div class = "daa1">
+                            <img src="./assets/departures-airport-sign.svg" alt="" srcset="">
+                    
+                        </div>
+                        <div class = "daa2">
+                            <h2 v-if = "depart==='HDL'">&ensp;Heartland (HDL)</h2>
+                            <h2 v-if = "depart==='DMK'">&ensp;Don Mueang (DMK)</h2>
+                        </div>
+                        <div class = "daa3">
+                            <p>&emsp; time : {{depTime}} &emsp; | &emsp; Adults : {{numAdult}}  &emsp; | &emsp; Children : {{numChildren}}</p>
+                        </div>
+                        
+                    
+                    </div>
+
+                    <div class = "depandarr">
+
+                        <div class="daa0">
+                            <span>&emsp;Arrive to :</span>
+                        </div>
+                        <div class="daa1">
+                            <img src="./assets/arrivals-airport-sign.svg" alt="" srcset="">
+                        </div>
+                    
+                        <div class="daa2">
+                            <h2 v-if = "arrive==='HDL'">&ensp;Heartland (HDL)</h2>
+                            <h2 v-if = "arrive==='DMK'">&ensp;Don Mueang (DMK)</h2>
+                        </div>
+                        
+                        <div class = "daa3">
+                            <p>&emsp; time : {{arrTime}} &emsp; | &emsp; Adults : {{numAdult}}  &emsp; | &emsp; Children : {{numChildren}}</p>
+                        </div>
+                
+                    
+                    </div>
+
+                    
+
+                    <div class="sumprice">
+
+                        <div class = "sumTotalPrice" style = "grid-row: 1; grid-column: 1;">
+                            <h2>฿ {{summary}}</h2>
+                        </div>
+                        <div class = "sumTotalPrice" style = "grid-row: 1; grid-column: 2/ span 5;">
+                            <h2 v-if = "enLang">Total</h2>
+                            <h2 v-else>รวมทั้งหมด</h2>
+                        </div>
+
+                        <div style = "grid-column: 1; grid-row: 2/span 3;">
+                            <p>฿ {{ticketFee}}</p>
+                            <p>฿ {{airportFee}}</p>
+                            <p>฿ {{deluxeBaggage? 100 : "-"}}</p>
+                            <p>฿ {{vatseven}}</p>
+                        </div>
+                        <div v-if = "enLang" style="grid-column: 2 / span 5; grid-row: 2/span 3; ">
+                            <p>ticket fee</p>
+                            <p>airport fee</p>
+                            <p>Fat bird baggage fee</p>
+                            <p>vat 7%</p>
+                            <p>*Note, this is a price per one person.</p>
+                        </div>
+                        <div v-else style="grid-column: 2 / span 5; grid-row: 2/span 3;">
+                            <p>ค่าบัตรโดยสาร</p>
+                            <p>ภาษีสนามบิน</p>
+                            <p>ค่าธรรมเนียม เพคเกจสัมภาระนกอ้วน</p>
+                            <p>ภาษีมูลค่าเพิ่ม</p>
+                            <p>*หมายเหตุ เป็นราคาต่อผู้โดยสารแต่ละท่าน</p>
+                        </div>
+                        
+                        
+                        
+                    </div>
+
+                    <div class="next" @click = "onPressNext">
+                        <h2 v-if = "enLang">next <i class="bi bi-arrow-right"></i></h2>
+                        <h2 v-else>ถัดไป <i class="bi bi-arrow-right"></i></h2>
+                    </div>
+                    
+                </div>
+
+                
+                
+            
+            </div>
+            <p style = "text-align: right; padding-right: 5vw;">@Copyleft {{today}} ChickenAir CO.LTD</p>
+
+            
+        <footah></footah>
         </div>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="./components/footer.js"></script>
-    <script src="./components/booking.js"></script>
+    <script src="./components/footer.prod.js"></script>
+    
+    <script src="./components/flightSercher.prod.js"></script>
+    
     <script>
         const mountedApp = app.mount("#app")
     </script>

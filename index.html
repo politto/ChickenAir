@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน้าหลัก - Chickenair</title>
+    <title>Home - Chickenair</title>
 
-    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.prod.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
-    <script src="./components/data.json"></script>
+    
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbarncknotice.css">
+    <link rel="stylesheet" href="atmedia.css">
+    
 
 </head>
 <body>
@@ -19,7 +22,7 @@
         <div id="app" >
             
             
-            
+            <!-- ไม่ใช้ อันนี้แล้ว
             <div class="navbar">
                 <ul class = "navul">
                     <li><img :src="logo" alt="logo"> Home</li>
@@ -32,10 +35,49 @@
                         TH/EN</p>
                     </li>
                 </ul>
-            </div>
-               
+            </div>-->
             
-            <!--div class="navbarunder" v-if = "navbarPOS = 'under' "-->
+            <div class="navbar2">
+                <a href="./index.html"><img :src=logo alt = "logo"></a>
+                <ul>
+                    
+                    <a href="#flight-sercher">
+                        <li v-if = "enLang">Booking</li>
+                        <li v-else>จองบัตรโดยสาร</li>
+                    </a>
+                    <a href="#information">
+                        <li v-if = "enLang">Information</li>
+                        <li v-else>ข้อมูลการเดินทาง</li>
+                    </a> 
+                    <!--a href="#about-us"><li v-if = "enLang">About us</li></a-->
+                    <a href="#footah">
+                        <li v-if = "enLang">Contact</li>
+                        <li v-else>ติดต่อ</li>
+                    </a>
+                    <li @click = "enLang = !enLang"><i class="bi bi-translate" ></i>EN/TH</li>
+                </ul>
+                <div class="barncross">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+            <div class="navbar">
+                <ul>
+                    <a href="./index.html"><li>Home</li></a>
+                    <a href="#flight-sercher"><li>Booking</li></a>
+                    <a href="#information"><li>Information</li></a> 
+                    <!--a href="#about-us"><li>About us</li></a-->
+                    <a href="#footah"><li>Contact</li></a>
+                    <li @click = "enLang = !enLang"><i class="bi bi-translate" ></i>EN/TH</li>
+                </ul>
+            </div>
+            
+            <div class = "cknotice" @click = "closeCK">
+                <p v-if = "enLang">This website uses cookies. click below to accept cookies. more information <a href="https://docs.google.com/document/d/1QqRqzv4tO-6beP_B7s4enljNN10N7g5zCsIrXRrCy7Y/edit?usp=sharing">here.</a></p>
+                <p v-else>เว็บไซต์นี้มีการใช้คุกกี้ คลิกด้านล่างเพื่อยอมรับคุกกี้ ข้อมูลเพื่มเติม<a href="https://docs.google.com/document/d/1QqRqzv4tO-6beP_B7s4enljNN10N7g5zCsIrXRrCy7Y/edit?usp=sharing">คลิกตรงนี้.</a></p>
+                <button type="button" class="btn btn-success btn-lg btn-block">Accept cookies / ยอมรับคุกกี้</button>
+            </div>
 
             
             <div class="content">
@@ -53,22 +95,36 @@
                     <img src="assets/chickenPlanepic.jpg" alt="chickenairplane" srcset="">
                    
                 </div>
-                    <booking-form :en-lang = "enLang"  @flight-search-filter = "setData" ></booking-form>
-                <div class="ctblk" v-if = "enLang">
+
+                <flight-searcher :en-lang = "enLang"  @flight-searcher = "recieveFlightSearchFil" id = "flight-sercher"></flight-searcher>
+
+                <div class="ctblk" id = "information" v-if = "enLang" style = "background-color: #fff;" id = "flight-sercher">
+                    <h3>
+                        Hi there! welcome to the ChickenAir.
+
+                    </h3>
                     <p>
-                        Hi{{name}} welcome to ChickenAir website
-                        <br>
-                        Chickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline website
-                        Chickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline website
-                        Chickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline website
-                        Chickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline websiteChickenair is fake airline website
-                        <br><br><br><br><br><br><br><br><br>
-                        
+                        We are the fake airline company that operates fake flights between Bangkok(Don mueang) and state of Heartland airport for 2 flights a day in both ways.
                     </p>
-                </div>
-                <div class="ctblk" v-else>
                     <p>
-                        สวัสดี ยินดีต้อนรับสู่สายการบิน ชิกเก้นแอร์{{flightSearchData}}
+                        we have registered and operating since 32 may -2022
+                    </p>
+                    <h3>
+                        Our aircraft.
+                    </h3>
+                    <p>
+                        we have 1 B737-800 registrated with HS-KAI.
+                    </p>
+                    <p>
+                        <b>P.S. All registration is intentionally FAKE.</b>
+                    </p>
+                    
+                </div>
+                <div class="ctblk" id = "information" v-else style = "background-color: #fff;">
+                    <!-- {{flightSearchFilter}} - ???? -->
+                    <h3>สวัสดี ยินดีต้อนรับสู่สายการบิน ชิกเกนแอร์</h3>
+                    <p>
+                        
                         เราได้เปิดให้บริการเที่ยวบินระหว่างท่าอากาศยานนานาชาติดอนเมือง และท่าอากาศยานนานาชาติอาร์ตแลนด์ ให้บริการวันละ 2 เที่ยว ในราคาไก่ๆ<br>
                     
                     </p>
@@ -79,22 +135,79 @@
                         เครื่องบินของเรา
                     </h3>
                     <p> เรามีเครื่องบินแบบ boeing 737-800 ให้บริการ 1 ลำ ทะเบียน HS-KAI</p>
+                    <b>ปล. ข้อมูลข้างต้นมิได้เป็นจริงแต่อย่างใด</b>
                     <br>
                     <br>
-                    <b>ปล. ข้อมูลที่กล่าวมามิได้เป็นจริงแต่อย่างใด</b>
+                    
+                    <!-- <div>
+                        <img src="https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/PromoCard/viewliner-roomette.jpg/_jcr_content/renditions/original" alt="">
+                    </div> -->
+                </div>
+                <div class="ctblk" id = "Heartland">
+                    <div v-if = "enLang">
+
+                    <h3>What is Heartland? What is in that place?</h3>
+                    <p>Heartland(or state of Heartland) is a state that famous with the most wonderful theme park in the universe. which runs by Mr.HEARTROCKER.</p>
+                    <p>The direction to this theme park is so easy! just catch a train after you arrive at Heartland airport, ride till the last stop.</p>
+                    <p>Even though this theme park is not the first in Heartland, but this theme park will give you a lot of wonderful experience more than ever! We promise you that it will really worth of your ticket fee.even you just at Entry gate. </p>
+                    <p><b>Why don't you try watching one of his previews of his Heartland? Watch another video on his Youtube channel na. And you will quickly back to us to booking tlhe ticket immedietly!</b></p>
+                    </div>
+                    <div v-else>
+                        <h3>ฮาร์ตแลนด์ คืออะไร มีอะไร?</h3>
+                        <p>ฮาร์ตแลนด์ เป็นรัฐที่มีชื่อเสียงเกี่ยวกับแดนสวนสนุกที่มหัศจรรย์มากที่สุดแห่งหนึ่งของจักรวาล โดยมีพี่เอก HEARTROCKER เป็นเจ้าของ</p>
+                        <p>สวนสนุกแห่งนี้สามารถเข้าถึงได้ง่ายไ เพียงแค่ลงจากสนามบินฮาร์ตแลนด์ แล้วนั่งรถไฟฟ้าไปสุดสายก็ถึงแล้ว</p>
+                        <p>แม้สวนสนุกแห่งนี้จะไม่ใช่สาขาแรก แต่ก็เป็นสาขาที่ให้ความตื่นตาตื่นใจมากกว่าสาขาแรกเสียอีก เพียงแต่เข้าไปในสวนทางเข้า บอกเลยว่าคุ้มค่าตั๋วแล้ว และเมื่อผ่านทางเข้าเข้าไป ก็มีเครื่องเล่นอีกเยอะแยะมากมายให้คุณเข้าไปสำรวจอยู่ ทางเราก็ไม่ขอสปอยมา ณ ที่นี้</p>
+                        <p><b>เพราะจะไม่ดีกว่าหรือถ้าคุณลองดูวิดิโอพรีวิวสวนสนุกเขาดูน่ะ ไปดูวิดิโออื่นๆ และไปติดตามเขาผู้นี้ได้ในยูทูปนะ รับรองคุณจะต้องรีบกลับมาจองบัตรโดยสารกับเราแน่นอน!</b></p>
+                        <br>
+                    </div>
+                    <div>
+                        
+                        <iframe src="https://www.youtube.com/embed/ntZJAdyD5MY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt = "HEARTROCKER's Heartland video"></iframe>
+
+                    </div>
+                </div>
+                <div class="ctblk" style = "text-align: left" v-if = "enLang">
+                    <h3 style = "text-align: center;">Q&A with Chickenair's CEO.</h3>
+
+                    <p>What are the purposes for creating this website?</p>
+                    <p><b>-> The mainly purposes is <br> to learn to developing a website using Vue.js, a Javascript framework, via doing this website project. <br> to learn about some advance client-side Javascript command which include cookies, Async-Await, writing and fetching a JSON file(as you will see the avalible flights page.) etc., <br> to learn more about HTML and CSS technique, <br> and Finally is I want to create HRK's fanweb(?).</b></p>
+
+                    <p>I found bug(s)?</p>
+                    <p><b>-> Notice me on <a href="#footah">my contact channels in the bottom of this page.</a></b></p>
+
+                    <p>Are you tired developing this website?</p>
+                    <p><b>-> Definitely yes.</b></p>
+
+                    
+                </div>
+
+                <div class="ctblk" style = "text-align: left" v-else>
+                    <h3 style = "text-align: center;">Q&A กับ CEO ของชิกเกนแอร์</h3>
+
+                    <p>จุดประสงค์ในการทำเว็บไซต์นี้คืออะไร?</p>
+                    <p><b>-> จุดประสงค์หลักคือ <br> เพื่อเรียนรู้ในการพัฒนาเว็บไซต์โดยใช้ Vue.js ที่เป็นจาวาสคริปต์เฟรมเวิร์ก <br> เพื่อเรียนรู้เกี่ยวกับคำสั่งจาวาสคริปผั่งผู้ใช้งาน(ไม่ใช่node.js)ที่น่าสนใจและนิยมใช้ อันประกอบด้วย cookies, Async-Await, writing และการดึงข้อมูลจาก JSON file(จะเห็นได้จากหน้าแสดงเที่ยวบิน) เป็นต้น, <br> เพื่อเรียนรู้การใช้งาน HTML, CSS เพิ่มเติม, <br> และเพื่อทำแฟนเว็บ(?) ให้แก่พี่เอก HRK</b></p>
+
+                    <p>เจอบัคในเว็บไซต์นี้?</p>
+                    <p><b>-> บอกให้ผมทราบ<a href="#footah">ผ่านช่องทางการติดต่อต่างๆตรงด้านล่างของหน้านี้</a></b></p>
+
+                    <p>เหนื่อยไหมกับการทำเว็บไซต์นี้?</p>
+                    <p><b>-> มาก</b></p>
+
+                    
                 </div>
                 
             </div>
-            <footah></footah>
+            <footah id ="footah"></footah>
             
         </div>
     </div>
     <!-- Import main.js-->
-    <script src="main.js"></script>
+    <script src="main.prod.js"></script>
     <!-- below is boostrap JS for use with boostrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="./components/footer.js"></script>
-    <script src="./components/booking.js"></script>
+    <script src="./components/footer.prod.js"></script>
+    <script src="./components/flightSercher.prod.js"></script>
+    
     <script>
         const mountedApp = app.mount("#app")
     </script>

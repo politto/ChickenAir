@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your ticket</title>
+
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.prod.js"></script>
+    <script src = "ticket.prod.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ticket.css">
+    <!-- <link rel="stylesheet" href="navbar.css"> -->
+    <link rel="stylesheet" href="atmedia.css">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <div class="desc" v-if = "adult.length>0">
+                <div class="chicken">
+                    <div>
+                        <img src="./assets/ChickenAirlogo.svg" alt="chickenairlogo">
+                        <h1>Chickenair</h1>
+                        <div id = "lang" @click = "enLang = !enLang"><i class="bi bi-translate" ></i>EN/TH</div>
+                        
+                    </div>
+                </div>
+                <br>
+                <div v-if = "enLang">
+                    <h2>Thank you for choosing our service!</h2>
+                    <p>&emsp; Here are your ticket(s), Don't forget to come to the airport 2 hours before flight , but you must get into the airport in different ways at the following:</p>
+                    <ul>
+                        
+                        <li>Watch 
+                            <a target="_blank" href="https://www.youtube.com/@HEARTROCK/videos">the Heartland CEO(P'Aek HEARTROCKER)'s videos</a>
+                            , espacially those video playing Planet Coaster game.
+                        </li>
+                        <li>Go to bed</li>
+                        <li>Dream to us!</li>
+                        <li>And we will fly you to the Heartland!</li>
+                        <li>If you want to save this ticket, just capture entire this page or copy this website url and convert to PDF by <a target="_blank" href="https://www.sejda.com/html-to-pdf">click this</a>.</li>
+                        <li>Check out Chickenair's CEO every contact ways in the bottom of the 
+                            <a target="_blank" href="./index.html">index page</a>
+                        </li>
+                        <li>
+                            We recommend you to booking return way ticket right after this time, because we afraid that return way to don mueang ticket is not able to book in State of Heartland. If misfortunate on you, you haven't book return way ticket, <span style = "color: red;">You will get stuck there forever.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div v-else>
+                    <h2>ขอบคุณที่ใช้บริการของเรา!</h2>
+                    <p>&emsp; ด้านล่างนี้คือบัตรโดยสารของคุณ กรุณามาที่สนามบินและเผื่อเวลา 2 ชั่วโมงเป็นต้นไปก่อนเวลาเดินทางด้วยล่ะ ,แต่การมาที่สนามบินเนี่ยต้องมาแบบไม่ใช่วิธีปกตินะ ซึ่งมีกฎต้องทำตามนี้ :</p>
+                    <ul>
+                        
+                        <li>ดู
+                            <a target="_blank" href="https://www.youtube.com/@HEARTROCK/videos">วิดิโอของ Heartland CEO(พี่เอก HEARTROCKER)</a>
+                            , โดยเฉพาะวิดิโอที่เขาพรีวิวสถานที่ที่จะเป็นจุดหมายของคุณไงล่ะ.
+                        </li>
+                        <li>ไปนอน</li>
+                        <li>ฝันถึงเรา!</li>
+                        <li>และคุณจะพบว่าอยู่ในสนามบินที่จะออกเดินทาง เราจะอยู่ตรงนั้น พร้อมพาคุณไปเอง!</li>
+                        <li>ถ้าคุณต้องการจะบันทึกบัตรโดยสารเหล่านี้เป็นที่ระลึก, ก็สามารถแคปจอเอาได้เลย หรือก็อบที่อยู่เว็บไซต์ <a target="_blank" href="https://www.sejda.com/html-to-pdf">แล้วเข้าไปที่ลิ้งค์นี้</a> คุณจะได้บัตรโดยสารเป็นไฟล์PDF</li>
+                        <li>ฝากกดติดตาม เข้าไปดูทุกช่องทางบัญชีของ CEO สายการบินชิกเกนแอร์ผู้นี้
+                            <a target="_blank" href="./index.html">ในหน้าหลักของเว็บไซต์นี้</a>
+                        </li>
+                        <li>
+                            แนะนำว่าก่อนหลับตาลงกรุณาจองเที่ยวกลับไว้ด้วย เราไม่มั่นใจว่าในรัฐฮาร์ตแลนด์สามารถจองบัตรโดยสารกลับจากฮาร์ตแลนด์ได้หรือไม่ หากโชคร้าย คุณไม่ได้จองบัตรเที่ยวกลับตั้งแต่ตอนนี้ และจองที่ฮาร์ตแลนด์ไม่ได้ <span style = "color: red;">คุณก็อาจจะต้องอยู่ที่นั่น ตลอดไป</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="desc" v-else>
+                <h2>Please go back to  <a href="./index.html">index page.</a></h2>
+            </div>
+            <div class="ticket" v-for = "(each,i) in adult">
+                <div class = "base">
+                    <div class="chicken">
+                        
+                        <div>
+                            <img src="./assets/ChickenAirlogo.svg" alt="chickenairlogo">
+                            <h1>Chickenair</h1>
+                        </div>
+                        <div>
+                            <h2>BOARDING PASS</h2>
+                        </div>
+                    </div>
+                    <div class="barc">
+                        <img class = "barCode" src="./assets/barcode.png" alt="barcode">
+                    </div>
+                    <div class = "psginfo">
+                        
+                        <div>
+                            <p>flight</p>
+                            <h3>{{flight}}</h3>
+                            <p>Name</p>
+                            <h2>{{each.fname.toUppercase}}</h2>
+                            <p>departure</p>
+                            <h3>{{depart}}</h3>
+                            <p>boarding time</p>
+                            <h3>{{depTime}}</h3>
+                            <p>gate&emsp;</p>
+                            <h3>GATE 31</h3>
+                            
+                            
+                        </div>
+                        <div>
+                            <p>class</p>
+                            <h3>{{klass}}</h3>
+                            <p>lastname</p>
+                            <h2>{{each.lname}}</h2>
+                            <p>arrival</p>
+                            <h3>Heartland(HDL)</h3>
+                            <p>seat</p>
+                            <h3 class = "seat">{{seat[i]}}</h3>
+                            <p style = "color: red;">PLEASE BE AT THE BOARDING GATE</p>
+                            <p style = "color: red;">10 MINUTES BEFORE BOARDING TIME</p>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div class = "mini">
+                        <div class="barc">
+                            <img class = "barCode" src="./assets/barcode.png" alt="barcode" style = "border: 0px; border-radius: 0; height:380px;">
+                        </div>
+                        
+                        <div class = "psgInfo">
+                            
+                            <p><b><img src="./assets/ChickenAirlogo.svg" alt="chickenairlogo">BOARDING PASS</b></p>
+                            <p>name: <b>{{each.fname}}</b></p>
+                            <p>surname: <b>{{each.lname}}</b></p>
+                            <p>flight: <b>{{flight}}</b></p>
+                            <p>class: <b>{{klass}}</b></p>
+                            <p>date: <b>{{depDate}}</b></p>
+                            <p>dest: <b>{{arrive}}</b></p>
+                            <p>seat: <b class = "seat2">{{seat[i]}}</b></p>
+                            <p>boarding: <b>{{depTime}}</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ticket" v-for = "(each,i) in children">
+                <div class = "base">
+                    <div class="chicken">
+                        
+                        <div>
+                            <img src="./assets/ChickenAirlogo.svg" alt="chickenairlogo">
+                            <h1>Chickenair</h1>
+                        </div>
+                        <div>
+                            <h2>BOARDING PASS</h2>
+                        </div>
+                    </div>
+                    <div class="barc">
+                        <img class = "barCode" src="./assets/barcode.png" alt="barcode">
+                    </div>
+                    <div class = "psginfo">
+                        
+                        <div>
+                            <p>flight</p>
+                            <h3>{{flight}}</h3>
+                            <p>Name</p>
+                            <h2>{{each.fname}}</h2>
+                            <p>departure</p>
+                            <h3>{{depart}}</h3>
+                            <p>boarding time</p>
+                            <h3>{{depTime}}</h3>
+                            <p>gate&emsp;</p>
+                            <h3>GATE 31</h3>
+                            
+                            
+                        </div>
+                        <div>
+                            <p>class</p>
+                            <h3>{{klass}}</h3>
+                            <p>lastname</p>
+                            <h2>{{each.lname}}</h2>
+                            <p>arrival</p>
+                            <h3>Heartland(HDL)</h3>
+                            <p>seat</p>
+                            <h3 class = "seat">{{seat[adult.length + i]}}</h3>
+                            <p style = "color: red;">PLEASE BE AT THE BOARDING GATE</p>
+                            <p style = "color: red;">10 MINUTES BEFORE BOARDING TIME</p>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div class = "mini">
+                        <div class="barc">
+                            <img class = "barCode" src="./assets/barcode.png" alt="barcode" style = "border: 0px; border-radius: 0; height:380px;">
+                        </div>
+                        
+                        <div class = "psgInfo">
+                            
+                            <p><b><img src="./assets/ChickenAirlogo.svg" alt="chickenairlogo">BOARDING PASS</b></p>
+                            <p>name: <b>{{each.fname}}</b></p>
+                            <p>surname: <b>{{each.lname}}</b></p>
+                            <p>flight: <b>{{flight}}</b></p>
+                            <p>class: <b>{{klass}}</b></p>
+                            <p>date: <b>{{depDate}}</b></p>
+                            <p>dest: <b>{{arrive}}</b></p>
+                            <p>seat: <b class = "seat2">{{seat[adult.length + i]}}</b></p>
+                            <p>boarding: <b>{{depTime}}</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const mountedApp = app.mount("#app")
+    </script>
+</body>
+</html>

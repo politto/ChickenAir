@@ -30,10 +30,7 @@ app.component('footah', {
                 
                 
                 
-        </div>
-        
-    
-        <div class = "author">
+       
             <a href = "https://www.linkedin.com/in/nattaphat-songsiin-729b29228/">
                 <img src = "assets/bxl-linkedin.svg" style = "filter: invert(27%) sepia(51%) saturate(5776%) hue-rotate(244deg) brightness(103%) contrast(106%);">
             <p style = "color: #6945ff;">

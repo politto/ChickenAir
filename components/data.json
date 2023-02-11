@@ -1,0 +1,68 @@
+{
+    "user":{
+        "id" : 1,
+        "name" : "pololo",
+        "departure": "..."
+    },
+    "flightsold":{
+        "test":"test",
+        "No":["cka123","cka456"],
+        "departTime":["07.00","17.00"],
+        "arriveTime":["08.00","18.00"],
+        "eco":[799,759],
+        "bsn":[1299,1059]
+    },
+    "flights":[
+        {
+            "id":0, 
+            "callsign":"CKA123",
+            "departure":"DMK",
+            "destination":"HDL",
+            "departTime":"07.00",
+            "arriveTime":"08.00",
+            "eco":799.00,
+            "bsn":1299.00
+        },
+        {
+            "id":1, 
+            "callsign":"CKA456",
+            "departure":"DMK",
+            "destination":"HDL",
+            "departTime":"17.00",
+            "arriveTime":"18.00",
+            "eco":859.00,
+            "bsn":1399.00
+        },
+        {
+            "id":2, 
+            "callsign":"CKA444",
+            "departure":"HDL",
+            "destination":"DMK",
+            "departTime":"09.00",
+            "arriveTime":"10.00",
+            "eco":859.00,
+            "bsn":1399.00
+        }
+    ],
+    "airports":{
+        "DMK": {
+            "name" : "Don Mueang",
+            "gate" : 31
+        },
+        "HDL": {
+            "name" : "Heartland",
+            "gate" : 1
+        },
+        "LLA": {
+            "name" : "Lub Lae city",
+            "gate" : 1
+        },
+        "NST": {
+            "name" : "Nakhon Si Thammarat",
+            "gate" : 1
+        }
+    }
+        
+    
+
+}

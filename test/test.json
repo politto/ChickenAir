@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 {
     "objecc":{
         "ayyay":[1,2,3,4,5,"I love you"]
     }
+=======
+{
+    "objecc":{
+        "ayyay":[1,2,3,4,5,"I love you"]
+    }
+>>>>>>> aa27c29e09918687e5e3c3ec61b9591af18acc1b
 }

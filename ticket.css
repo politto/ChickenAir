@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+a{
+    color: rgb(0, 200, 0);
+}
+.desc{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    padding: 2vh;
+}
+#lang{
+    position: absolute;
+    transform: scale(1.5);
+    right: 20vw;
+    padding-top: 0.5vh;
+}
+.desc h2{
+    text-align: center;
+    
+}
+
+.ticket{
+    
+
+    width: 1300px;
+    height: 420px;
+    border-radius: 50%;
+    margin: 2vh auto;
+    
+    background-image: url("./assets/ChickenAirlogo.svg");
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    
+}
+.ticket .base{
+    
+    background-color: rgba(255, 255, 255,0.7);
+    height: 100%;
+    border-radius: 20px;
+    padding: 20px;
+    display: grid;
+    grid-template-areas: 'barcode chicken chicken chicken chicken chicken mini'
+    'barcode info info info info info mini'
+    'barcode info info info info info mini'
+    'barcode info info info info info mini';
+}
+h1{
+    font-family: 'Noto Serif Thai';
+    color: rgb(255, 0, 0);
+    font-weight: 900;
+    -webkit-text-stroke: 0.02em rgb(0, 0, 0);
+}
+.chicken{
+    grid-area: chicken;
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+.chicken div{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: baseline;
+}
+.chicken img, .mini img{
+    height: 40px;
+    margin-right: 20px;
+    border-radius: 50%;
+    border: 2px solid rgb(0, 0, 0);
+}
+.mini{
+    grid-area: mini;
+    display: flex;
+    flex-direction: row;
+    
+    border-left: 2px dashed #000;
+}
+.mini p {
+    font-size: large;
+}
+.ticket div .qrCode{
+    height: 200px;
+    width: 200px;
+    margin: auto;
+}
+.barc{
+    grid-area: barcode;
+    justify-content: left;
+    padding-right: 20px;
+}
+.ticket div .barCode{
+    
+    height: 380px;
+    transform: translatey(50%);
+    transform: translatex(45%);
+    
+}
+
+.psginfo{
+    display: flex;
+    flex-direction: row;
+    grid-area: info;
+    display: flex;
+    overflow: hidden;
+}
+.psginfo div{
+    flex-grow: 1;
+}
+.psginfo h2{
+    font-weight: 900;
+    font-size: 35px;
+}
+.psginfo p{
+    margin-bottom: 0;
+}

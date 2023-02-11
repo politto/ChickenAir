@@ -1,7 +1,11 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "firebase-functions": "^4.1.1",
     "jspdf": "^2.5.1",
     "vue": "^3.2.47"
+=======
+    "vue": "^3.2.37"
+>>>>>>> aa27c29e09918687e5e3c3ec61b9591af18acc1b
   }
 }

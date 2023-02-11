@@ -27,16 +27,33 @@
                     <li v-if = "enLang">back to home</li>
                     <li v-else>กลับไปหน้าหลัก</li>
                 </a>
-                <li @click = "enLang = !enLang"><i class="bi bi-translate" ></i>EN/TH</li>
+                <li @click = "enLang = !enLang"><i class="bi bi-translate" ></i>   
+                    <span v-if = "enLang"> ภาษาไทย</span>        
+                    <span v-else> to English</span>
+                </li>
                 
                 <div class="summaryPriceHead">
                     <p>{{summary}}  ฿</p>
                     <i class="bi bi-caret-down"></i>
                 </div>
-                
-                
-                
 
+                <div class="barncross">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+            </div>
+
+            <div class="navbar">
+                <ul>
+                    <a href="./index.html"><li>Home</li></a>
+                    <a href="#flight-sercher"><li>Booking</li></a>
+                    <a href="#information"><li>Information</li></a> 
+                    <!--a href="#about-us"><li>About us</li></a-->
+                    <a href="#footah"><li>Contact</li></a>
+                    <li @click = "enLang = !enLang"><i class="bi bi-translate" ></i>EN/TH</li>
+                </ul>
             </div>
             
             <div class="extendSummaryHead">
@@ -142,7 +159,7 @@
                             <h2>&ensp;{{depart}}</h2>
                         </div>
                         <div class = "daa3">
-                            <p>&emsp; time : {{depTime}} &emsp; | &emsp; Adults : {{numAdult}}  &emsp; | &emsp; Children : {{numChildren}}</p>
+                            <p>time : {{depTime}} &emsp; | &emsp; Adults : {{numAdult}}  &emsp; | &emsp; Children : {{numChildren}}</p>
                         </div>
                         
                     

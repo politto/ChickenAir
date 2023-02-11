@@ -32,8 +32,8 @@
     z-index: 1;
     top: 0;
     background-color: rgba(0, 0, 0, 0.85);
-    
-    height:8vh;   
+    overflow: hidden;
+    height:8vh;
     display: flex;
     align-items: center;
     font-family: 'Sarabun';
@@ -195,8 +195,7 @@
     right: 0;
     z-index: 2;
     background-color: #fff;
-
-    width: 100%;
+    width: 100vw;
     padding: 2vh;
     display: flex;
     flex-direction: column;

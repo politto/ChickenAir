@@ -3,7 +3,7 @@ const app= Vue.createApp({
         return{
 
             logo:"./assets/ChickenAirlogo.svg",
-            enLang:true,
+            enLang: false,
 
             numAdult:0,
             numChildren:0,

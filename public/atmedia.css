@@ -63,6 +63,21 @@
     #airportsign{
         overflow: hidden;        
     }
+
+    .depandarr, .sumprice, .next{
+        width: inherit;
+    }
+
+    .depandarr{
+        grid-template-areas: 'deporarr place place place place place'
+        'pic place place place place place'
+        'pic place place place place place'
+        'pic place place place place place'
+        'pic place place place place place'
+        'pic tac tac tac tac tac'
+        ;
+    }
+
     .baggage{
         flex-direction: row;
         height: 300px;
@@ -74,6 +89,12 @@
     #Heartland iframe{
         width: 64vw;
         height:36vw;
+    }
+
+    .author{
+        grid-template-areas: 'ig fb'
+        'lin yt';
+        width:400px;
     }
 
     
@@ -161,9 +182,15 @@
     }
 }
 
-@media(max-width:768px){
+@media(max-width:767px){
     .navbar2 ul li:nth-child(4){
         visibility: visible;
         position: absolute;
+    }
+}
+
+@media(max-height:400px){
+    .navbar2{
+        height: 8vw;
     }
 }

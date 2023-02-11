@@ -12,7 +12,7 @@ const app = Vue.createApp({
             depTime:"",
             arrTime:"",
             gate:"",
-            enLang: true
+            enLang: false
         }
     },
     methods:{

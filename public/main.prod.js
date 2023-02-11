@@ -5,7 +5,7 @@ const app = Vue.createApp({
         return {
             chicken : true,
             logo: "./assets/ChickenAirlogo.svg",
-            enLang: true ,
+            enLang: false ,
             wipwup: false ,
             flights: {},
             cookies: document.cookie,

@@ -247,9 +247,19 @@ hr{
     'sumprice'
     'next';
     
-    overflow-x:scroll;
+    overflow:scroll;
     /* changes in atmedia */
 
+}
+
+/*for Chrome, Safari, Opera */
+#airportsign::-webkit-scrollbar {
+    display: none;
+}
+/*for IE, Edge, FF */
+#airportsign{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 #airportsign img{
@@ -273,12 +283,22 @@ hr{
     padding: 2vh;
     display: grid;
     /* width:100% !important; */
-    min-width: 600px;
+    width: 98% !important;
     border: 1px solid #fff;
     border-radius: var(--blkbdrradus);
     display: grid;
     margin: 1vh;
 }
+
+.depandarr{
+    grid-template-areas: 'deporarr'
+    'pic'
+    'pic'
+    'place'
+    'tac'
+    ;
+}
+
 .depandarr:nth-child(2){
     grid-area: depart;
 }
@@ -315,24 +335,30 @@ hr{
     font-size: 2.2em;
 }
 .depandarr .daa0{
-    grid-row: 1;
-    grid-column: 1;
-    text-align: left;
+    grid-area: deporarr;
+    
 }
 .depandarr .daa1{
-    grid-row: 2 / span 3;
-    grid-column: 1;
+    grid-area: pic;
     text-align: center;
-    width: 9vw;
 }
 .depandarr .daa2{
-    grid-row: 2 / span 2;
-    grid-column: 2 / span 4;
-    padding-top: 2vh;
+    grid-area: place;
+    padding: 2vh 0;
+    overflow: scroll;
+}
+/*for Chrome, Safari, Opera */
+.depandarr .daa2::-webkit-scrollbar {
+    display: none;
+}
+/*for IE, Edge, FF */
+.depandarr .daa2{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .depandarr .daa3{
-    grid-row: 4;
-    grid-column: 2 / span 4;
+    grid-area: tac;
+    text-align: center;
 }
 .depandarr span{
     color: yellow;
@@ -359,7 +385,7 @@ hr{
     border-radius: var(--blkbdrradus);
     display: flex;
     flex-direction: column;
-    min-width:400px;
+    min-width:100%;
     
     
 }
@@ -431,8 +457,7 @@ hr{
     /* border-radius: var(--blkbdrradus); */
     display: flex;
     flex-direction: column;
-    min-width:400px;
-    height: 700px;
+    min-width:100%;
     overflow: hidden;
     
     
@@ -519,9 +544,11 @@ input[type=text]{
 .author{
     display: grid;
     margin: auto;
-    grid-template-areas: 'ig fb'
-    'lin yt';
-    width:400px;
+    grid-template-areas: 'ig'
+    'fb'
+    'lin'
+    'yt';
+    width:100%;
 }
 /* .author a{
     
